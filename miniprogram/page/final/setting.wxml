@@ -1,0 +1,60 @@
+<!--miniprogram/page/final/setting.wxml-->
+<!-- <text>miniprogram/page/final/setting.wxml</text> -->
+<view class="index">
+
+  <view class="index-hd">
+    <view class="index-desc">在这里可以查询洗衣机列表，绑定洗衣机。</view>
+  </view>
+
+
+  <view class="index-bd">
+    <view class="weui-cells__title">通过关键字查询</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input"  maxlength="10" bindinput="bindKeyInput" placeholder="26号楼"/>
+      </view>
+    </view>
+    <button type="primary" bindtap="search">搜索</button>
+
+    <view class="weui-cells__title">通过扫描洗衣机上的二维码查询 </view>
+    <!-- <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input"  maxlength="10" bindinput="bindKeyInput2" placeholder="000003E5"/>
+      </view>
+    </view> -->
+    <button type="default" bindtap="searchhex">扫码查询</button>
+
+    <view class="kind-list">
+      <mp-loading type="circle" class="index-desc" wx:if="{{loading}}"></mp-loading>
+      <view class="index-desc">{{result_desc}}</view>
+      <block wx:for-items="{{list}}" wx:key="washerHexCode">
+        <view class="kind-list-item">
+          <view id="{{item.washerHexCode}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+            <view class="kind-list-text">{{item.washerName}}</view>
+            <!-- <image wx:if="{{theme === 'dark'}}" class="kind-list-img" src="resources/kind/{{item.id}}_dark.png"></image>
+            <image wx:else class="kind-list-img" src="resources/kind/{{item.id}}.png"></image> -->
+          </view>
+          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+            <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+              <view class="navigator-text">{{item.washerName}}</view>
+              <view wx:if="{{item.remainRunning===0}}" class="navigator-text">当前空闲</view>
+              <view wx:else class="navigator-text">剩余{{item.remainRunning}}分钟</view>
+              <view class="navigator-text">编号: {{item.washerHexCode}}</view>
+              <view class="navigator-text">状态{{item.state}}</view>
+              <view class="navigator-text">{{item.lastUpdateTime}}秒前更新</view>
+              <button type="default" bindtap="bind" id="{{item.washerHexCode}}">绑定</button>
+              <!-- <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+                <navigator url="pages/{{page}}/{{page}}" class="navigator">
+                  <view class="navigator-text">{{page}}</view>
+                  <view class="navigator-arrow"></view>
+                </navigator>
+              </block> -->
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+  </view>
+</view>

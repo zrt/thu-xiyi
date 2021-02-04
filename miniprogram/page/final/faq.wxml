@@ -1,0 +1,88 @@
+<!--miniprogram/page/final/faq.wxml-->
+<!-- <text>miniprogram/page/final/faq.wxml</text> -->
+<view class="page" data-weui-theme="{{theme}}">   
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">FAQ</view>
+            <view class="weui-article__section">
+                <view class="weui-article__h2">使用指南</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.1 绑定洗衣机</view>
+                    <view class="weui-article__p">
+                        在“设置”页面通过搜索关键字找到洗衣机并绑定。
+                    </view>
+                    <view class="weui-article__p">
+                        暂不支持同时绑定多台洗衣机。
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.2 设置提醒</view>
+                    <view class="weui-article__p">
+                        绑定后在“云提醒”页面可以看到已绑定的洗衣机状态，并且可以设置提醒。
+                    </view>
+                    <view class="weui-article__p">
+                        设置提醒后小程序会在洗衣机下一次空闲时会通过服务通知发送提醒。
+                    </view>
+                    <view class="weui-article__p">
+                        提醒误差小于三分钟。
+                    </view>
+                    <view class="weui-article__p">
+                        暂不支持取消提醒。
+                    </view>
+                </view>
+            </view>
+
+            <view class="weui-article__section">
+                <view class="weui-article__h2">常见问题</view>
+                <view class="weui-article__h3">2.1 无法搜索到洗衣机？</view>
+                <view class="weui-article__p">
+                    可以在“设置”页面通过扫码进行查询。
+                </view>
+                <view class="weui-article__h3">2.2 如何把小程序分享给其他同学？</view>
+                <view class="weui-article__p">
+                    <button type="primary" open-type="share">点此推荐给朋友</button>
+                </view>
+                <view class="weui-article__h3">2.3 为什么预计等待时间在快到的时候又变长了？</view>
+                <view class="weui-article__p">
+                    小程序在发送提醒前会再次检查洗衣机的状态，如果洗衣机在完成上一个任务后被人“无缝衔接”，小程序会顺延等待下一次空闲的时候进行提醒。
+                </view>
+                <!-- <view class="weui-article__h3">2.1 HexCode是什么？在哪里能找到HexCode？</view>
+                <view class="weui-article__p">
+                    如果通过关键字找不到洗衣机，可以尝试通过HexCode查找，HexCode是每个洗衣机的唯一编号，在扫码洗衣支付订单时可以看到，一般为一个8位的16进制串。
+                </view> -->
+            </view>
+            <view class="weui-article__section">
+                <view class="weui-article__h2">更新日志</view>
+                <view class="weui-article__p">
+                    2021.1.13 修复无法获取订阅消息权限的问题。
+                </view>
+            </view>
+            <view class="weui-article__section">
+                <view class="weui-article__h2">其他</view>
+                <view class="weui-article__section">
+                    <!-- <view class="weui-article__h3">1.1 绑定洗衣机</view> -->
+                    <view class="weui-article__p">
+                        此小程序与洗衣机服务商无关。
+                    </view>
+                    <view class="weui-article__p">
+                      如果使用过程中遇到问题或有相关建议请联系bktt@qq.com，或者点击下方的“我要吐槽”。
+                    </view>
+                    <view class="weui-article__p">
+                        <button type="default" open-type="feedback">我要吐槽</button>
+                    </view>
+                    <view class="weui-article__p">
+                        <button type="default" open-type="getUserInfo" bindgetuserinfo="login">点此实名使用</button>
+                        <!-- <button type="default" bindtap="login"></button> -->
+                    </view>
+                    <view class="weui-article__p">
+                        <official-account></official-account>
+                    </view>
+                </view>
+                <view class="weui-article__h2">统计信息</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__p">共{{usernum}}人使用，当前有{{tasknum}}条提醒任务。</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

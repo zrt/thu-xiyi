@@ -1,0 +1,30 @@
+/* miniprogram/page/final/index.wxss */
+@import "../common/index.wxss";
+
+.weui-agree__link {
+  display: inline;
+  color: var(--weui-LINK);
+}
+label {
+  display: inline-block;
+  min-width: 235px;
+  margin-right: 10px;
+}
+form{
+  width: 100%;
+}
+.picker-text {
+  margin-left: 10px;
+  position: relative;
+}
+.navigator-box {
+  padding: 5px 20px;
+}
+.navigator-text {
+  color: var(--weui-FG-3);
+  padding: 1px 0;
+}
+.version-text{
+  position: absolute;
+  bottom: 100px;
+}

@@ -1,0 +1,64 @@
+<view class="index">
+
+  <view class="index-hd">
+    <view class="index-desc">这是一个洗衣机空闲提醒小程序。</view>
+    <view wx:if="{{state.jobs}}">
+      <view class="index-desc">
+        你已经设置过提醒啦。
+      </view>
+      <view class="index-desc">
+        是“{{state.jobs.name}}”,
+      </view>
+      <view class="index-desc">
+        我大概会在<b>{{state.jobs.est_time}}</b>分钟内通过服务通知提醒你。
+      </view>
+      <view wx:if="{{never_pull}}" class="index-desc">
+        下拉可以刷新。
+      </view>
+    </view>
+
+    <view wx:if="{{state.nobinding}}">
+      <view class="index-desc">
+        你好，欢迎使用。
+      </view>
+      <view class="index-desc">
+        不如先去设置和FAQ页面看一看。
+      </view>
+      <view class="index-desc">
+        <official-account></official-account>
+      </view>
+    </view>
+
+    <view wx:if="{{state.binding}}">
+      <view class="index-desc">
+        你绑定了“{{state.binding.name}}”这台洗衣机。
+      </view>
+      <view wx:if="{{washer.washerHexCode}}">
+        <!-- <view class="index-desc">{{washer.washerName}}</view> -->
+        <view wx:if="{{washer.remainRunning===0}}" class="index-desc">
+          目前这个洗衣机是<span style="color:green;">空闲</span>状态，你可以直接去洗。
+        </view>
+        <view wx:else class="index-desc">
+          有人在用这台洗衣机，还需要大概<b>{{washer.remainRunning}}</b>分钟。
+        </view>
+        <view  wx:if="{{never_pull}}" class="index-desc">
+          下拉可以刷新。
+        </view>
+        <!-- <view class="index-desc">编号: {{washer.washerHexCode}}</view>
+        <view class="index-desc">状态{{washer.state}}</view>
+        <view class="index-desc">{{washer.lastUpdateTime}}秒前更新</view> -->
+        <button wx:if="{{washer.remainRunning!==0}}" type="primary" bindtap="subs" id="notify">一会儿提醒我</button>
+        
+      </view>
+      <view wx:else>
+        <view class="index-desc">
+          正在帮你查询它的状态..
+        </view>
+      </view>
+      
+    </view>
+    <mp-loading type="circle" class="index-desc" wx:if="{{loading}}"></mp-loading>
+    <view class="index-desc">{{text}}</view>
+  </view>
+
+</view>
